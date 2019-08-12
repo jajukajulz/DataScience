@@ -28,3 +28,16 @@ text(mds[, 1], mds[, 2], labels(eurodist))
 
 ####################END MDS USING EURODIST DATASET##########################################################
 
+####################START CREATE DISTANCE MATRIX USING RANDOM DATA##########################################################
+
+?dist
+
+#create a 5 x 20 matrix by sampling from a Normal distribution
+x <- matrix(rnorm(100), nrow = 5)
+
+#view matrix
+View(x)
+
+#create a distance matrix
+dist(x)
+####################END CREATE DISTANCE MATRIX USING RANDOM DATA##########################################################
