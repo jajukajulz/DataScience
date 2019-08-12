@@ -17,7 +17,8 @@ eurodist_mat <- as.matrix(eurodist)
 #view matrix
 View(eurodist_mat)
 
-#Run classical MDS 
+#Run classical MDS (2 dimension default)
+#cmdscale is Classical (Metric) Multidimensional Scaling
 #NB - this would have similar results to a PCA that returns 2 PC's i.e. prcomp(eurodist)$x[, 1:2]
 mds <- cmdscale(eurodist) 
 
@@ -42,9 +43,21 @@ ggplot(as.data.frame(mds), aes(V1, -V2, label = rownames(mds))) + geom_text(chec
 #create a 5 x 20 matrix by sampling from a Normal distribution
 x <- matrix(rnorm(100), nrow = 5)
 
-#view matrix
+#view distance matrix
 View(x)
 
 #create a distance matrix
-dist(x)
+dist_x <- dist(x)
+
+#view 5 x 5 distance matrix
+View(as.matrix(dist_x))
+
+#Run classical MDS (2 dimension default)
+mds2 <- cmdscale(dist_x)
+
+#view scores
+View(mds2)
+
+#TODO - check why this plot is coming up empty
+plot(mds2, type = 'n')
 ####################END CREATE DISTANCE MATRIX USING RANDOM DATA##########################################################
