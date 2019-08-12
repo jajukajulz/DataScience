@@ -1,6 +1,12 @@
-#title: "Dimensionality Reduction Tutorial"
+#title: "Dimensionality Reduction Tutorial - ClassicMDS "
 #author: "Julian Kanjere"
 #date: "August 2019"
+
+#Multidimensional scaling (MDS) is a multivariate data analysis approach that is used to visualize the
+#similarity/dissimilarity between samples by plotting points in lower dimensional plots.
+
+#Classic MDS / Metric MDS preserves the original distance metric, between points, as well as possible. That is the fitted distances on the MDS map and the original distances are in the same metric. Classic MDS belongs to the so-called metric multidimensional scaling category. It is suitable for quantitative data.
+#2.	Non-metric MDS / Ordinal MDS is different to Classic MDS in that it is not the metric of a distance value that is important or meaningful, but its value in relation to the distances between other pairs of objects. Ordinal MDS constructs fitted distances that are in the same rank order as the original distance. For example, if the distance of apart objects 1 and 5 rank fifth in the original distance data, then they should also rank fifth in the MDS configuration. It’s suitable for qualitative data.
 
 ####################START MDS USING EURODIST DATASET##########################################################
 #The eurodist gives the road distances (in km) between 21 cities in Europe. 
