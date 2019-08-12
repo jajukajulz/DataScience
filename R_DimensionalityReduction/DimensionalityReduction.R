@@ -21,11 +21,18 @@ View(eurodist_mat)
 #NB - this would have similar results to a PCA that returns 2 PC's i.e. prcomp(eurodist)$x[, 1:2]
 mds <- cmdscale(eurodist) 
 
+#view scores
+View(mds)
+
+#Plotting the results
 #Now that the 21-dimensional space has been transformed/reduced into 2 dimensions, we can plot and easily visualise
 #this would have been hard with the original 21 x 21  distance matrix
 plot(mds, type = 'n')
 text(mds[, 1], mds[, 2], labels(eurodist))
 
+#Cleaner plot using ggplot
+library(ggplot2)
+ggplot(as.data.frame(mds), aes(V1, -V2, label = rownames(mds))) + geom_text(check_overlap = TRUE) + theme_minimal() 
 ####################END MDS USING EURODIST DATASET##########################################################
 
 ####################START CREATE DISTANCE MATRIX USING RANDOM DATA##########################################################
