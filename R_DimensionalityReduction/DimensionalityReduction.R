@@ -36,6 +36,39 @@ library(ggplot2)
 ggplot(as.data.frame(mds), aes(V1, -V2, label = rownames(mds))) + geom_text(check_overlap = TRUE) + theme_minimal() 
 ####################END MDS USING EURODIST DATASET##########################################################
 
+####################START MDS USING MTCARS DATASET##########################################################
+#The mtcars data set (Motor Trend Car Road Tests) was extracted from the 1974 Motor Trend US magazine, 
+#and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). 
+#It consists of 32 observations (i.e. n) on 11 (numeric) variables (i.e P).
+
+help(mtcars) 
+
+#create matrix, 21 rows x 21 columns
+#the distance matrix represents the travel distance between 21 European cities in kilometers
+mtcars_dist <- dist(mtcars)
+
+#view matrix
+View(as.matrix(mtcars_dist))
+
+#Run classical MDS (2 dimension default)
+#cmdscale is Classical (Metric) Multidimensional Scaling
+mds.mtcars <- cmdscale(mtcars_dist) 
+
+#view scores
+View(mds.mtcars)
+
+#Plotting the results
+#Now that the 10-dimensional space has been transformed/reduced into 2 dimensions, we can plot and easily visualise
+#this would have been hard with the original 32 x 10  dataset 
+plot(mds.mtcars, type = 'n')
+text(mds.mtcars[, 1], mds.mtcars[, 2], rownames(mds.mtcars))
+
+#Cleaner plot using ggplot
+library(ggplot2)
+ggplot(as.data.frame(mds.mtcars), aes(V1, -V2, label = rownames(mds.mtcars))) + geom_text(check_overlap = TRUE) + theme_minimal()
+####################END MDS USING MTCARS DATASET##########################################################
+
+
 ####################START CREATE DISTANCE MATRIX USING RANDOM DATA##########################################################
 
 ?dist
