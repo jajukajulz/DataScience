@@ -54,7 +54,11 @@ total_baby_unisex = len(list_all_baby_unisex)
 print(total_baby_unisex)
 print(list_all_baby_unisex)
 # data_frame.groupby(['occupation', 'gender']).size()
-
+# “group by” involves split-apply-combine:
+#     Splitting the data into groups based on some criteria.
+#     Applying a function to each group independently.
+#     Combining the results into a data structure.
+#
 
 
 # c) for a unisex name, plot name vs time with legend being gender
