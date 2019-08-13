@@ -101,6 +101,7 @@ abline(h = 0, v = 0, lty = 'dashed')
 #from the plot:
 #the top 4 features based on absolute values for PC1 are number of cylinders (cyl), displacement (disp), weight (wt), and gas consumption (mpg)
 #the top 4 features absolute values for PC2 are speedup(qsec), number of gears (gear), carburetors (carb), and the transmission type (am)
+#if the features are close together on the biplot that means they are correlated with each other
 
 #to verify details from plot we can compute the correlation coefficient between the original variables and the principal components:
 cor(mtcars, pca.mtcars$x[, 1:2])
