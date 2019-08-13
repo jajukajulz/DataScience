@@ -19,7 +19,7 @@ help(mtcars)
 #view dataset - 32 x 11
 View(mtcars)
 
-#Run PCA, scaling the data results in data with unit variance.
+#Run PCA, scaling the data results in data with unit variance, PCA requires a matrix as an input
 #This (prcomp()) returns the standard deviations of the principal components, which shows how much information was
 # preserved by the 11 components.
 pca.mtcars <- prcomp(mtcars, scale = TRUE)
@@ -59,7 +59,7 @@ View(pca.mtcars$x[, 1:2])
 
 
 #The PC values were computed by a standard linear transformation -  multiplying the original dataset with the identified weights i.e. loadings (rotation)
-#The rotation matrix is also known as the component matrix.
+#The rotation matrix is also known as the component matrix or the loadings matrix.
 # i.e. (scale(mtcars) %*% pca.mtcars$rotation[, 1:2])
 
 #The Principal Components are are scaled with the mean 0 and standard deviation 1
@@ -75,4 +75,21 @@ pca.mtcars$sdev[1:2]
 #The calculated Principal Components are not correlated because scaling is carried out and the PC's are transformed to a
 #new coordinate system with an orthogonal basis
 round(cor(pca.mtcars$x))
+
+#Use a biplot to interpret the Principal Components. The biplot shows the observations (labelled in black) on the same plot
+#with the new coordinate system based on the principal components (shown in red for each of the features)
+#The axis at the top (PC1) and the right hand side (PC2) is for the observations and principal components pca.mtcars$x[, 1:2]
+#The axis on the bottom (PC1) and left hand side (PC2) is for the features and the rotation values pca.mtcars$rotation[, 1:2]
+biplot(pca.mtcars, cex = c(0.8, 1.2))
+abline(h = 0, v = 0, lty = 'dashed')
+
+#from the plot:
+#the top 4 features based on absolute values for PC1 are number of cylinders (cyl), displacement (disp), weight (wt), and gas consumption (mpg)
+#the top 4 features absolute values for PC2 are speedup(qsec), number of gears (gear), carburetors (carb), and the transmission type (am)
+
+#to verify details from plot we can compute the correlation coefficient between the original variables and the principal components:
+cor(mtcars, pca.mtcars$x[, 1:2])
+
+#maybe we can call PC1 consumption features and PC2 tranmission characteristics
+
 ####################END PCA USING MTCARS DATASET##########################################################
