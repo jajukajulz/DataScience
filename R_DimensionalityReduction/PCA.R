@@ -6,7 +6,7 @@
 #especially when there is a huge number of variables (in some cases when the number of variables is more than the
 #number of observations. PCA employs orthogonal (perpendicular) transformations that best explain the variance of the data.
 #PCA results in a lower-dimensional image of the data, where the uncorrelated principal components are the linear combinations of the original
-#variables.
+#variables. Put another way, the goal of PCA is to find the best low-dimensional representation of the variation in a multivariate dataset .
 
 ####################START PCA USING MTCARS DATASET and PRCOMP()##########################################################
 #The mtcars data set (Motor Trend Car Road Tests) was extracted from the 1974 Motor Trend US magazine,
