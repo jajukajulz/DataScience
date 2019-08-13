@@ -24,11 +24,11 @@ View(mtcars)
 # preserved by the 11 components.
 pca.mtcars <- prcomp(mtcars, scale = TRUE)
 
-#view the Principal Components
+#view the stddev, rotation, centering, scaling etc.
 View(pca.mtcars)
 
 #View Importance of components i.e. Standard Deviation, Proportion of Variance explained etc
-#The standard deviation of the first component is expected to be larger (often a lot larger) than any other subsequent value
+#The standard deviation of the first component is expected to be larger (often a lot larger) than any other subsequent value)
 #The components with standard deviation higher than one include at least as much information as the original variables did
 # (i.e. indicate which variables have a higher eigenvalue than one).
 summary(pca.mtcars)
@@ -46,10 +46,12 @@ pca.mtcars.eigenvalue.sum #this should be 11 since original data had 11 variable
 #preceding summary suggests keeping only two components out of the 11,
 pca.mtcars.eigenvalue <- (pca.mtcars)$sdev^2
 pca.mtcars.eigenvalue #we keep the first 2 PC's i.e. (6.6 + 2.65) / 11 = 0.8409091 (they explain approx 85% of the variance)
+#NB this is similar to the cumulative proportion on PC2 from the summary
 
 
 #Another option for determining the optimal number of Principal Components to keep is to use the scree plot
 #VSS.scree() from psych package gives you a scree plot with eigenvalue vs component number
+library(psych)
 VSS.scree(cor(mtcars)) # optimal number of components is those with eigenvalue above 1 (Kaiser criterion)
 
 #Plotting the results
