@@ -1,0 +1,39 @@
+#title: "Dimensionality Reduction Tutorial - Principal Component Analysis (PCA)"
+#author: "Julian Kanjere"
+#date: "August 2019"
+
+#Principal Component Analysis (PCA) is a dimensionality reduction technique used to find the core components of a dataset
+#especially when there is a huge number of variables (in some cases when the number of variables is more than the
+#number of observations. PCA employs orthogonal (perpendicular) transformations that best explain the variance of the data.
+#PCA results in a lower-dimensional image of the data, where the uncorrelated principal components are the linear combinations of the original
+#variables.
+
+####################START PCA USING MTCARS DATASET and PRCOMP()##########################################################
+#The mtcars data set (Motor Trend Car Road Tests) was extracted from the 1974 Motor Trend US magazine,
+#and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+#It consists of 32 observations (i.e. n) on 11 (numeric) variables (i.e P).
+
+help(mtcars)
+
+
+#view dataset - 32 x 11
+View(mtcars)
+
+#Run PCA, scaling the data results in data with unit variance.
+#This (prcomp()) returns the standard deviations of the principal components, which shows how much information was
+# preserved by the 11 components.
+pca.mtcars <- prcomp(mtcars, scale = TRUE)
+
+#view scores
+View(pca.mtcars)
+
+#Plotting the results
+#Now that the 21-dimensional space has been transformed/reduced into 2 dimensions, we can plot and easily visualise
+#this would have been hard with the original 21 x 21  distance matrix
+plot(pca.mtcars, type = 'n')
+text(pca.mtcars[, 1], pca.mtcars[, 2], labels(mtcars))
+
+#Cleaner plot using ggplot
+library(ggplot2)
+ggplot(as.data.frame(pca.mtcars), aes(V1, -V2, label = rownames(pca.mtcars))) + geom_text(check_overlap = TRUE) + theme_minimal()
+####################END PCA USING MTCARS DATASET##########################################################
