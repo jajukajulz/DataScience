@@ -36,7 +36,16 @@ summary(pca.mtcars)
 
 # Eigenvalue is the square of the standard deviation of the principal components.
 # This sums up to the number of variables in the original dataset
-pca.mtcars.eigenvalue <- sum((pca.mtcars)$sdev^2) #this should be 11 since original data had 11 variables
+pca.mtcars.eigenvalue <- sum((pca.mtcars)$sdev^2)
+pca.mtcars.eigenvalue #this should be 11 since original data had 11 variables
+
+#Number of principal components returned by PCA algorithms always the same as the number of features/variables in the original dataset
+#The strength/importance of the principal components decreases from the first one to the last one.
+#Rule of a thumb is to keep the components with standard deviation > 1 (which also means a variance greater than 1)
+#i.e. we keep the Principal Components that explain as much variance as the original variables do
+#preceding summary suggests keeping only two components out of the 11,
+pca.mtcars.variance <- (pca.mtcars)$sdev^2
+pca.mtcars.variance #we keep the first 2 PC's i.e. (6.6 + 2.65) / 11 = 0.8409091 (they explain approx 85% of the variance)
 
 #Plotting the results
 #Now that the 21-dimensional space has been transformed/reduced into 2 dimensions, we can plot and easily visualise
