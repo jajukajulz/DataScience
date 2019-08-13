@@ -54,4 +54,25 @@ pca.mtcars.eigenvalue #we keep the first 2 PC's i.e. (6.6 + 2.65) / 11 = 0.84090
 library(psych)
 VSS.scree(cor(mtcars)) # optimal number of components is those with eigenvalue above 1 (Kaiser criterion)
 
+#view the first two principal components (since we have seen that the first two are worth keeping)
+View(pca.mtcars$x[, 1:2])
+
+
+#The PC values were computed by a standard linear transformation -  multiplying the original dataset with the identified weights i.e. loadings (rotation)
+#The rotation matrix is also known as the component matrix.
+# i.e. (scale(mtcars) %*% pca.mtcars$rotation[, 1:2])
+
+#The Principal Components are are scaled with the mean 0 and standard deviation 1
+#we use summary() to view the min, 1st quartile, mean, median, 3rd quartile, max
+summary(pca.mtcars$x[, 1:2])
+
+#To view std dev calculated columnwise for PC1 and PC2
+apply(pca.mtcars$x[, 1:2], 2, sd)
+
+#This would be identical to the sd that is already in our pca.mtcars object
+pca.mtcars$sdev[1:2]
+
+#The calculated Principal Components are not correlated because scaling is carried out and the PC's are transformed to a
+#new coordinate system with an orthogonal basis
+round(cor(pca.mtcars$x))
 ####################END PCA USING MTCARS DATASET##########################################################
