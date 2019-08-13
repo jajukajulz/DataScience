@@ -20,6 +20,11 @@ help(mtcars)
 View(mtcars)
 
 #Run PCA, scaling the data results in data with unit variance, PCA requires a matrix as an input
+#Standardising the data accomplished by centering and then scaling
+#Centering the data is subtracting the column means from each sample value in the respective columns, this removes the arbitrary bias from measurements and moves the data to the origin of the coordinate system
+#Scaling the data results in data with unit variance, this addressess the issue that the variables may be measured in different units
+#if using princomp() to generate PC's, set cor=TRUE
+#if using prcomp() to generate PC's, set scale=TRUE and center=TRUE (center=TRUE is default)
 #This (prcomp()) returns the standard deviations of the principal components, which shows how much information was
 # preserved by the 11 components.
 pca.mtcars <- prcomp(mtcars, scale = TRUE)
@@ -39,6 +44,7 @@ summary(pca.mtcars)
 pca.mtcars.eigenvalue.sum <- sum((pca.mtcars)$sdev^2)
 pca.mtcars.eigenvalue.sum #this should be 11 since original data had 11 variables
 
+#Number of PC's to keep
 #Number of principal components returned by PCA algorithms always the same as the number of features/variables in the original dataset
 #The strength/importance of the principal components decreases from the first one to the last one.
 #Rule of a thumb is to keep the components with standard deviation > 1 (which also means a variance greater than 1)
@@ -48,24 +54,32 @@ pca.mtcars.eigenvalue <- (pca.mtcars)$sdev^2
 pca.mtcars.eigenvalue #we keep the first 2 PC's i.e. (6.6 + 2.65) / 11 = 0.8409091 (they explain approx 85% of the variance)
 #NB this is similar to the cumulative proportion on PC2 from the summary
 
-
+#Number of PC's to keep
 #Another option for determining the optimal number of Principal Components to keep is to use the scree plot
 #VSS.scree() from psych package gives you a scree plot with eigenvalue vs component number
 library(psych)
 VSS.scree(cor(mtcars)) # optimal number of components is those with eigenvalue above 1 (Kaiser criterion)
 
-#view the first two principal components (since we have seen that the first two are worth keeping)
+#Scores
+#view the scores for the first two principal components (since we have seen that the first two are worth keeping)
+#The PC scores are calculated for each of the observations so that we can assess the spread, similarities and differences between the observations.
+#The PC values were computed by a standard linear transformation -  multiplying the original dataset with the identified weights i.e. loadings (rotation)
+# i.e. (scale(mtcars) %*% pca.mtcars$rotation[, 1:2])
 View(pca.mtcars$x[, 1:2])
 
 
-#The PC values were computed by a standard linear transformation -  multiplying the original dataset with the identified weights i.e. loadings (rotation)
-#The rotation matrix is also known as the component matrix or the loadings matrix.
-# i.e. (scale(mtcars) %*% pca.mtcars$rotation[, 1:2])
+#Loadings
+#The rotation matrix is also known as the component matrix or the loadings matrix - a matrix whose columns contain the eigenvectors
+#The loadings for the principal components are stored in pca.mtcars$loadings if you have run PCA using princomp() otherwise in pca.mtcars$rotation if you use prcomp() for the PCA
+#The loadings relate to the features whilst the PC scores relate to the observations
+pca.mtcars$rotation[, 1:2] #loadings for first 2 components
 
+#Summary
 #The Principal Components are are scaled with the mean 0 and standard deviation 1
 #we use summary() to view the min, 1st quartile, mean, median, 3rd quartile, max
 summary(pca.mtcars$x[, 1:2])
 
+#StdDev
 #To view std dev calculated columnwise for PC1 and PC2
 apply(pca.mtcars$x[, 1:2], 2, sd)
 
@@ -76,10 +90,11 @@ pca.mtcars$sdev[1:2]
 #new coordinate system with an orthogonal basis
 round(cor(pca.mtcars$x))
 
+#Visualisation
 #Use a biplot to interpret the Principal Components. The biplot shows the observations (labelled in black) on the same plot
 #with the new coordinate system based on the principal components (shown in red for each of the features)
-#The axis at the top (PC1) and the right hand side (PC2) is for the observations and principal components pca.mtcars$x[, 1:2]
-#The axis on the bottom (PC1) and left hand side (PC2) is for the features and the rotation values pca.mtcars$rotation[, 1:2]
+#The axis at the top (PC1) and the right hand side (PC2) is for the observations and principal component scores pca.mtcars$x[, 1:2]
+#The axis on the bottom (PC1) and left hand side (PC2) is for the features and the rotation values (also known as loadings) pca.mtcars$rotation[, 1:2]
 biplot(pca.mtcars, cex = c(0.8, 1.2))
 abline(h = 0, v = 0, lty = 'dashed')
 
