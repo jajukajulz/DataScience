@@ -24,8 +24,19 @@ View(mtcars)
 # preserved by the 11 components.
 pca.mtcars <- prcomp(mtcars, scale = TRUE)
 
-#view scores
+#view the Principal Components
 View(pca.mtcars)
+
+#View Importance of components i.e. Standard Deviation, Proportion of Variance explained etc
+#The standard deviation of the first component is expected to be larger (often a lot larger) than any other subsequent value
+#The components with standard deviation higher than one include at least as much information as the original variables did
+# (i.e. indicate which variables have a higher eigenvalue than one).
+summary(pca.mtcars)
+
+
+# Eigenvalue is the square of the standard deviation of the principal components.
+# This sums up to the number of variables in the original dataset
+pca.mtcars.eigenvalue <- sum((pca.mtcars)$sdev^2) #this should be 11 since original data had 11 variables
 
 #Plotting the results
 #Now that the 21-dimensional space has been transformed/reduced into 2 dimensions, we can plot and easily visualise
