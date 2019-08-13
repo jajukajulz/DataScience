@@ -54,13 +54,4 @@ pca.mtcars.eigenvalue #we keep the first 2 PC's i.e. (6.6 + 2.65) / 11 = 0.84090
 library(psych)
 VSS.scree(cor(mtcars)) # optimal number of components is those with eigenvalue above 1 (Kaiser criterion)
 
-#Plotting the results
-#Now that the 21-dimensional space has been transformed/reduced into 2 dimensions, we can plot and easily visualise
-#this would have been hard with the original 21 x 21  distance matrix
-plot(pca.mtcars, type = 'n')
-text(pca.mtcars[, 1], pca.mtcars[, 2], labels(mtcars))
-
-#Cleaner plot using ggplot
-library(ggplot2)
-ggplot(as.data.frame(pca.mtcars), aes(V1, -V2, label = rownames(pca.mtcars))) + geom_text(check_overlap = TRUE) + theme_minimal()
 ####################END PCA USING MTCARS DATASET##########################################################
