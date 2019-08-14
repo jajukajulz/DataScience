@@ -45,6 +45,9 @@ mtcars$am <- factor(mtcars$am) #alternative to above
 #Return Summary for each column - Min, 1st Quartile, Median, Mean, 3rd Quartile, Max
 summary(mtcars)
 
+#Check frequencies of factor variable (assumes variable mtcars$am has been converted to a factor)
+table(mtcars$am)
+
 #For loop
 for(i in 1:length(mtcars)){
     cat("Iteration number = ", i)
