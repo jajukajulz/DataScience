@@ -21,3 +21,7 @@ mtcars.train = mtcars[train,]
 
 #view first 6 rows and all columns (features) of dataset
 head(mtcars)
+
+#return number of columns/features in dataset
+length(mtcars) #expect this to be 11
+
