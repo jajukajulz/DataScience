@@ -11,3 +11,7 @@ current_path = rstudioapi::getActiveDocumentContext()$path  #Get path of current
 setwd(dirname(current_path ))#setworking directory
 print( getwd() )
 
+#set seed so that sampling can be reproduced in future
+set.seed(10)
+
+
