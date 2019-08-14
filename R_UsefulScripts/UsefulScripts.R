@@ -34,3 +34,6 @@ for(i in 1:length(mtcars)){
     #If you want the entire output returned as a string use sprintf or paste
     #mystring <- sprintf("Iteration number = ", i)
 }
+
+#read csv
+USBabyNames <- read.csv("USBabyNames.csv")
