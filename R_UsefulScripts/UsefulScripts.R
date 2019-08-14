@@ -52,3 +52,6 @@ for(i in 1:length(mtcars)){
 #read csv
 USBabyNames <- read.csv("USBabyNames.csv")
 
+#Drop ID variable if in dataset
+USBabyNames <- USBabyNames[,-1] #Drop ID variable which is first column
+
