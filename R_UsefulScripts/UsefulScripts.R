@@ -1,4 +1,4 @@
-#title: "Collection of useful R code snippets"
+#title: "Collection of useful (and unrelated) R code snippets"
 #author: "Julian Kanjere"
 #date: "August 2019"
 
@@ -14,4 +14,7 @@ print( getwd() )
 #set seed so that sampling can be reproduced in future
 set.seed(10)
 
-
+#80%/20% Train Test Split
+train = sample(1:nrow(mtcars), nrow(mtcars)*.80)
+mtcars.test = mtcars[-train,]
+mtcars.train = mtcars[train,]
