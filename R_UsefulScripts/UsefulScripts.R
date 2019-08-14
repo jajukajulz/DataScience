@@ -42,6 +42,9 @@ str(mtcars) #Returns column types and more info such as the levels of your facto
 mtcars[,9] <- factor(mtcars[,9]) #convert column 9 which is transmission type manual or automatic
 mtcars$am <- factor(mtcars$am) #alternative to above
 
+#Return Summary for each column - Min, 1st Quartile, Median, Mean, 3rd Quartile, Max
+summary(mtcars)
+
 #For loop
 for(i in 1:length(mtcars)){
     cat("Iteration number = ", i)
