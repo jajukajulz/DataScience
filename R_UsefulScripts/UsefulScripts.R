@@ -37,6 +37,10 @@ sapply(mtcars, class)
 #check dataset column types and get more info
 str(mtcars) #Returns column types and more info such as the levels of your factors and the first few values of each variable)
 
+#convert a dataset column to factor/category variable (i.e. so R does not confuse the feature with numerical variables)
+mtcars[,9] <- factor(mtcars[,9]) #convert column 9 which is transmission type manual or automatic
+mtcars$am <- factor(mtcars$am) #alternative to above
+
 #for loop
 for(i in 1:length(mtcars)){
     cat("Iteration number = ", i)
