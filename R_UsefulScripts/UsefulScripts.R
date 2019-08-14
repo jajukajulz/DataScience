@@ -55,7 +55,7 @@ USBabyNames <- read.csv("USBabyNames.csv")
 #Drop ID variable if in dataset
 USBabyNames <- USBabyNames[,-1] #Drop ID variable which is first column
 
-#Check for missing values
+#Check for missing values (NA or NaN)
 colSums(is.na(USBabyNames))
 
 #Retain only complete cases
