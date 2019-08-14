@@ -28,6 +28,9 @@ length(mtcars) #expect this to be 11
 #return column names from dataset
 names(mtcars)
 
+#check number of observations/cases/rows and features/variables/columns in dataset
+dim(mtcars) #this should return 32 observations and 11 features
+
 #for loop
 for(i in 1:length(mtcars)){
     cat("Iteration number = ", i)
@@ -37,3 +40,4 @@ for(i in 1:length(mtcars)){
 
 #read csv
 USBabyNames <- read.csv("USBabyNames.csv")
+
