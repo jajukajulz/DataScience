@@ -70,3 +70,6 @@ summary(USBabyNames)
 Count.median <- median(USBabyNames$Count, na.rm=TRUE) #calculate median excluding missing values
 USBabyNames$Count[is.na(USBabyNames$Count)] <- Count.median
 
+
+#Count number of observations whose column matches a specific value
+sum(mtcars$gear == 4) #number of cars with 4 gears
