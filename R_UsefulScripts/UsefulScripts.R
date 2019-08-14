@@ -27,3 +27,10 @@ length(mtcars) #expect this to be 11
 
 #return column names from dataset
 names(mtcars)
+
+#for loop
+for(i in 1:length(mtcars)){
+    cat("Iteration number = ", i)
+    #If you want the entire output returned as a string use sprintf or paste
+    #mystring <- sprintf("Iteration number = ", i)
+}
