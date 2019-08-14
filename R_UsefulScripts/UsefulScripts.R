@@ -31,6 +31,12 @@ names(mtcars)
 #check number of observations/cases/rows and features/variables/columns in dataset
 dim(mtcars) #this should return 32 observations and 11 features
 
+#check dataset column types
+sapply(mtcars, class)
+
+#check dataset column types and get more info
+str(mtcars) #Returns column types and more info such as the levels of your factors and the first few values of each variable)
+
 #for loop
 for(i in 1:length(mtcars)){
     cat("Iteration number = ", i)
