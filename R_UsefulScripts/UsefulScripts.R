@@ -70,6 +70,7 @@ USBabyNames <- USBabyNames[complete.cases(USBabyNames),]
 
 #Remove rows with NA or NaN in Count column from the dataset (Generally not a good approach although useful in some cases)
 USBabyNames <- USBabyNames[!is.na(USBabyNames$Count),]
+#USBabyNames <- na.omit(USBabyNames) #alternative to excluding missing values
 
 #Update missing values for Count using median values
 summary(USBabyNames)
