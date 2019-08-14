@@ -18,3 +18,6 @@ set.seed(10)
 train = sample(1:nrow(mtcars), nrow(mtcars)*.80)
 mtcars.test = mtcars[-train,]
 mtcars.train = mtcars[train,]
+
+#view first 6 rows and all columns (features) of dataset
+head(mtcars)
