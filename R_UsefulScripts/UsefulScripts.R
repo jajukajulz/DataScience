@@ -58,3 +58,8 @@ USBabyNames <- USBabyNames[,-1] #Drop ID variable which is first column
 #check for missing values
 colSums(is.na(USBabyNames))
 
+#update missing values for Count using median values
+summary(USBabyNames)
+Count.median <- median(USBabyNames$Count, na.rm=TRUE) #calculate median excluding missing values
+USBabyNames$Count[is.na(USBabyNames$Count)] <- Count.median
+
