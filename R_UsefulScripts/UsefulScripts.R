@@ -25,3 +25,5 @@ head(mtcars)
 #return number of columns/features in dataset
 length(mtcars) #expect this to be 11
 
+#return column names from dataset
+names(mtcars)
