@@ -9,6 +9,7 @@
 # Preserves the original distance metric, between points, as well as possible. That is the fitted distances on the MDS map and the original distances are in the same metric.
 # Classic MDS belongs to the so-called metric multidimensional scaling category. It is suitable for quantitative data.
 # This technique is used when the original data are in the form of observed quantities measured in terms of coordinates where distance is meaningful.
+# cmdscale() [stats package]: Compute classical (metric) multidimensional scaling.
 
 
 #2.	Non-metric MDS / Ordinal MDS
@@ -16,6 +17,8 @@
 # Ordinal MDS constructs fitted distances that are in the same rank order as the original distance. For example, if the distance of apart objects 1 and 5 rank fifth in the original distance data, then they should also rank fifth in the MDS configuration. It’s suitable for qualitative data.
 # This technique is resorted to when the original data are of categorical or similar type that have been observed on a scale where only ranking is important and not actual differences.
 # In statistics, "ranking" refers to the data transformation in which numerical or ordinal values are replaced by their rank when the data are sorted. For example, the numerical data 3.4, 5.1, 2.6, 7.3 are observed, the ranks of these data items would be 2, 3, 1 and 4 respectively.
+# isoMDS() [MASS package]: Compute Kruskal’s non-metric multidimensional scaling (one form of non-metric MDS).
+# sammon() [MASS package]: Compute sammon’s non-linear mapping (one form of non-metric MDS).
 
 
 ####################START MDS USING EURODIST DATASET##########################################################
