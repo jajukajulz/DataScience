@@ -48,6 +48,10 @@ summary(mtcars)
 #Check frequencies of factor variable (assumes variable mtcars$am has been converted to a factor)
 table(mtcars$am)
 
+#To plot a "scatter plot" of a single dimensional variable in R i.e. a number line
+library(ggplot2)
+ggplot(mtcars, aes(x=mtcars$VariableName, y=c(0))) + geom_point()
+
 #For loop
 for(i in 1:length(mtcars)){
     cat("Iteration number = ", i)
