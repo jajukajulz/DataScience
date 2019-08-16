@@ -91,3 +91,6 @@ sum(mtcars$gear == 4) #number of cars with 4 gears
 #Create a dataframe and add custom row names
 my_df <- cbind(col1=c(1,2,3,4))
 rownames(my_df) <- c("a","b","c","d")
+
+#Sort a dataframe in DESC order
+my_df[with(my_df, order(-col1)), ]
