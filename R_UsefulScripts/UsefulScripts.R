@@ -6,7 +6,7 @@
 rm(list=ls())
 
 #Set working directory to path of currently open script
-library(rstudioapi)
+library(rstudioapi) #You can't use this package unless you are in an interactive RStudio session
 current_path = rstudioapi::getActiveDocumentContext()$path  #Get path of current open file
 setwd(dirname(current_path ))#setworking directory
 print( getwd() )
