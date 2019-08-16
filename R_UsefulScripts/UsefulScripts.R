@@ -87,3 +87,7 @@ USBabyNames$Count[is.na(USBabyNames$Count)] <- Count.median
 
 #Count number of observations whose column matches a specific value
 sum(mtcars$gear == 4) #number of cars with 4 gears
+
+#Create a dataframe and add custom row names
+my_df <- cbind(col1=c(1,2,3,4))
+rownames(my_df) <- c("a","b","c","d")
