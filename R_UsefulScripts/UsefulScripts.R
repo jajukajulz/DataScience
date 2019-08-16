@@ -59,6 +59,9 @@ for(i in 1:length(mtcars)){
     #mystring <- sprintf("Iteration number = ", i)
 }
 
+#Print to console and add newline
+cat('I need to move on to a new line', '\n', 'at here')
+
 #Read csv
 USBabyNames <- read.csv("USBabyNames.csv")
 
