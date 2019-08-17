@@ -104,3 +104,7 @@ my_df[with(my_df, order(-col1)), ]
 library(knitr)
 kable(head(my_df, caption = "My Custom Table"), format = "markdown", digits = 2)
 
+#Merge dataframes / Add new columns
+df <- data.frame(Name = "John",Surname = "Doe")
+de <- data.frame(Country = "South Africa", City = "Cape Town")
+merge(df,de) #adds to the same row as new columns
