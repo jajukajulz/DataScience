@@ -94,3 +94,8 @@ rownames(my_df) <- c("a","b","c","d")
 
 #Sort a dataframe in DESC order
 my_df[with(my_df, order(-col1)), ]
+
+#Create an empty dataset and assign column names
+my_df <- data.frame(matrix(ncol = 3, nrow = 0))
+my_df_colnames <- c("name", "surname", "phone number")
+colnames(my_df) <- my_df_colnames
