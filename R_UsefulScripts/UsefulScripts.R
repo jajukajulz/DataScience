@@ -96,10 +96,11 @@ rownames(my_df) <- c("a","b","c","d")
 my_df[with(my_df, order(-col1)), ]
 
 #Create an empty dataset and assign column names
-my_df <- data.frame(matrix(ncol = 3, nrow = 0))
-my_df_colnames <- c("name", "surname", "phone number")
-colnames(my_df) <- my_df_colnames
+    my_df <- data.frame(matrix(ncol = 3, nrow = 0))
+    my_df_colnames <- c("name", "surname", "phone number")
+    colnames(my_df) <- my_df_colnames
 
 #Creating a table from a dataset
 library(knitr)
-kable(head(my_df), format = "markdown", digits = 2)
+kable(head(my_df, caption = "My Custom Table"), format = "markdown", digits = 2)
+
