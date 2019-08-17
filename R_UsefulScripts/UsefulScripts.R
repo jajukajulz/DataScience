@@ -99,3 +99,7 @@ my_df[with(my_df, order(-col1)), ]
 my_df <- data.frame(matrix(ncol = 3, nrow = 0))
 my_df_colnames <- c("name", "surname", "phone number")
 colnames(my_df) <- my_df_colnames
+
+#Creating a table from a dataset
+library(knitr)
+kable(head(my_df), format = "markdown", digits = 2)
