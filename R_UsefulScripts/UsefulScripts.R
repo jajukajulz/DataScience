@@ -125,7 +125,11 @@ iris_Species <- iris$Species #e.g. setosa
 iris_Petal_Width <- iris$Petal.Width #e.g. 0.2
 iris_Species_Width_Col <- paste(iris_Species, iris_Petal_Width) #e.g. "setosa 0.2"
 
-#barplot with rainbow coloursand varying y axis limits
+#barplot with rainbow colours and varying y axis limits
 tN <- table(Ni <- stats::rpois(100, lambda = 5))
-r <- barplot(tN, col = rainbow(20),ylim=c(0,50),main='long y-axis')
-r <- barplot(tN, col = rainbow(20),main='short y axis')
+barplot(tN, col = rainbow(20), ylim = c(0,50), main = 'long y-axis')
+barplot(tN, col = rainbow(20), main = 'short y axis')
+
+# automatically adjusted y-axisusing pretty() which returns a list of interval breaks covering all values of the provided data. 
+#pretty() guarantees that the maximum returned value is a round number and greater than maximum value in the data.
+barplot(tN, col = rainbow(20), ylim = range(pretty(c(0, 50))), main = 'long y-axis overing all values')
