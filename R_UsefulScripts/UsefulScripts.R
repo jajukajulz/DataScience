@@ -118,3 +118,9 @@ holdings_percent_labels <- paste(holdings_percent_labels,"%",sep="") #concatenat
 pie(holdings, labels = holdings_percent_labels, 
     col=rainbow(length(holdings_percent_labels)),
     main="Crypto Holdings Pie Chart")
+
+#create a new column from combination of two different columns
+#e.g. iris dataset, combine Species and Width
+iris_Species <- iris$Species #e.g. setosa
+iris_Petal_Width <- iris$Petal.Width #e.g. 0.2
+iris_Species_Width_Col <- paste(iris_Species, iris_Petal_Width) #e.g. "setosa 0.2"
