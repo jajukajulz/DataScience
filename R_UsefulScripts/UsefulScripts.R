@@ -108,3 +108,13 @@ kable(head(my_df, caption = "My Custom Table"), format = "markdown", digits = 2)
 df <- data.frame(Name = "John",Surname = "Doe")
 de <- data.frame(Country = "South Africa", City = "Cape Town")
 merge(df,de) #adds to the same row as new columns
+
+#Creating a pie chart
+holdings <- c(50, 24, 20, 6)
+holdings_labels <- c("Bitcoin", "Ethereum", "ZCash", "XRP")
+holdings_percent <- round(holdings/sum(holdings)*100) #calculate the percentages
+holdings_percent_labels <- paste(holdings_labels, holdings_percent) #concatenate labels with percentages
+holdings_percent_labels <- paste(holdings_percent_labels,"%",sep="") #concatenate labelled percentages with % symbol
+pie(holdings, labels = holdings_percent_labels, 
+    col=rainbow(length(holdings_percent_labels)),
+    main="Crypto Holdings Pie Chart")
