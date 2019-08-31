@@ -132,4 +132,4 @@ barplot(tN, col = rainbow(20), main = 'short y axis')
 
 # automatically adjusted y-axisusing pretty() which returns a list of interval breaks covering all values of the provided data. 
 #pretty() guarantees that the maximum returned value is a round number and greater than maximum value in the data.
-barplot(tN, col = rainbow(20), ylim = range(pretty(c(0, 50))), main = 'long y-axis overing all values')
+barplot(tN, col = rainbow(20), ylim = range(pretty(c(min(tN), max(tN)))), main = 'long y-axis overing all values')
