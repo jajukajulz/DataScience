@@ -133,3 +133,14 @@ barplot(tN, col = rainbow(20), main = 'short y axis')
 # automatically adjusted y-axisusing pretty() which returns a list of interval breaks covering all values of the provided data. 
 #pretty() guarantees that the maximum returned value is a round number and greater than maximum value in the data.
 barplot(tN, col = rainbow(20), ylim = range(pretty(c(min(tN), max(tN)))), main = 'long y-axis overing all values')
+
+#remove zero variance column
+data("iris")
+str(iris)
+iris$ZeroVariance <- 10 #add a column with zero variance
+head(iris)
+summary(iris)
+apply(iris, 2, var) #calculate variance for the different columns
+zero_variance_columns <- which(apply(iris, 2, var) == 0) #find column number of variables with zero variance
+iris <- iris[ - as.numeric(zero_variance_columns)] #exclude zero variance columns
+str(iris)
