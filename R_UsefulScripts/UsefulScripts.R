@@ -147,3 +147,6 @@ apply(iris, 2, var) #calculate variance for the different columns
 zero_variance_columns <- which(apply(iris, 2, var) == 0) #find column number of variables with zero variance
 iris <- iris[ - as.numeric(zero_variance_columns)] #exclude zero variance columns
 str(iris)
+
+#find out column number given column name
+which( colnames(iris)=="Species" )
