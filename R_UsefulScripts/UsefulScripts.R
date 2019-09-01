@@ -135,6 +135,9 @@ barplot(tN, col = rainbow(20), main = 'short y axis')
 barplot(tN, col = rainbow(20), ylim = range(pretty(c(min(tN), max(tN)))), main = 'long y-axis overing all values')
 
 #remove zero variance column
+#if you do not drop a zero variance column, you may run into issues when standardising the data
+#i.e.the zero variance column becomes NaN.
+
 data("iris")
 str(iris)
 iris$ZeroVariance <- 10 #add a column with zero variance
