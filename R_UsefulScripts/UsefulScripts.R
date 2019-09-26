@@ -115,7 +115,7 @@ holdings_labels <- c("Bitcoin", "Ethereum", "ZCash", "XRP")
 holdings_percent <- round(holdings/sum(holdings)*100) #calculate the percentages
 holdings_percent_labels <- paste(holdings_labels, holdings_percent) #concatenate labels with percentages
 holdings_percent_labels <- paste(holdings_percent_labels,"%",sep="") #concatenate labelled percentages with % symbol
-pie(holdings, labels = holdings_percent_labels, 
+pie(holdings, labels = holdings_percent_labels,
     col=rainbow(length(holdings_percent_labels)),
     main="Crypto Holdings Pie Chart")
 
@@ -130,7 +130,7 @@ tN <- table(Ni <- stats::rpois(100, lambda = 5))
 barplot(tN, col = rainbow(20), ylim = c(0,50), main = 'long y-axis')
 barplot(tN, col = rainbow(20), main = 'short y axis')
 
-# automatically adjusted y-axisusing pretty() which returns a list of interval breaks covering all values of the provided data. 
+# automatically adjusted y-axisusing pretty() which returns a list of interval breaks covering all values of the provided data.
 #pretty() guarantees that the maximum returned value is a round number and greater than maximum value in the data.
 barplot(tN, col = rainbow(20), ylim = range(pretty(c(min(tN), max(tN)))), main = 'long y-axis overing all values')
 
@@ -150,3 +150,26 @@ str(iris)
 
 #find out column number given column name
 which( colnames(iris)=="Species" )
+
+#plot graphs side by side and use different plot points
+par(mfrow = c(2,3)) #grid with 2 rows and 3 columns
+X <- c(1, 2, 3, 4, 5, 6, 7)
+
+Y1 <- c(2, 4, 5, 7, 12, 14, 16)
+
+Y2 <- c(3, 6, 7, 8, 9, 11, 12)
+
+Y3 <- c(1, 7, 3, 2, 2, 7, 9)
+
+plot(X,Y1, pch = 1)
+
+plot(X,Y2, pch = 2)
+
+plot(X,Y3, pch = 3)
+
+plot(X,Y1, pch = 4)
+
+plot(X,Y2, pch = 15)
+
+plot(X,Y3, pch = 16)
+# run dev.off() before you plot next graph to reset the mfrow parameter
