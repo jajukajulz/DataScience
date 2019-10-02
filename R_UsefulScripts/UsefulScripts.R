@@ -173,3 +173,9 @@ plot(X,Y2, pch = 15)
 
 plot(X,Y3, pch = 16)
 # run dev.off() before you plot next graph to reset the mfrow parameter
+
+
+#randomly sample 10 observations from a set containing 100 elements numbered 1 to 100
+n <- 10
+s <- sample(1:100, n)
+s
