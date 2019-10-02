@@ -7,7 +7,11 @@
 # Therefore, it’s necessary i) to assess clustering tendency before the analysis and ii) to validate the quality of the result after clustering.
 
 #1. kMeans Clustering
-# ABC
+# use normalized dataset
+# kc <- kmeans(normalized_dataset, number_of_clusters)
+# plot(variable1~variable2, dataset, col=kc$cluster) #plot variable1 against variable2 and colour the observations by cluster
+# output of kmeans() gives summary of cluster sizes, cluster means (i.e. kc$center), cluster membership vector,
+# within cluster sum of squares by cluster - the lower the within cluster sum of squares, the lower the variability and the closer the observations are in terms of distance.
 
 #2.	Hierarchical Clustering
 # hc_complete <- hclust(distance) gives a cluster dendrogram with complete linkage
@@ -34,6 +38,10 @@
 
 # Determine the optimal number of clusters
 # 1. Scree plot elbow
+# scree plot
+# within group sum of squares (i.e. within group variability) - optimal number of clusters is where you have the last largest drop in number of clusters
+
+
 # 2. Many indices - use NbClust() and choose best number of clusters according to the majority rule
 #  Compute the number of clusters
 # library(NbClust)
@@ -47,7 +55,7 @@
 # The goal of clustering algorithms is to split the dataset into clusters of objects, such that objects in the same cluster are similar as much as possible and objects in different clusters are highly distinct.
 # i.e. The average distance within cluster should be as small as possible; and the average distance between clusters should be as large as possible.
 
-# silhouette plot
+# Silhouette plot
 # Silhouette refers to a method of interpretation and validation of consistency within clusters of data. The technique provides a succinct graphical representation of how well each object has been classified.
 # Silhouette analysis measures how well an observation is clustered and it estimates the average distance between clusters. The silhouette plot displays a measure of how close each point in one cluster is to points in the neighboring clusters.
 # If many points have a low or negative value, then the clustering configuration may have too many or too few clusters.
