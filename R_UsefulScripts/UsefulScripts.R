@@ -179,3 +179,9 @@ plot(X,Y3, pch = 16)
 n <- 10
 s <- sample(1:100, n)
 s
+
+#z-score Normalization (also known as standardisation)
+#To normalize a variable, just subtract the mean value for that variable from each value. Then divide those values by the standard deviation.
+#You will end up with a variable that has a mean of 0 and a standard deviation of 1 for each of your normalized variables.
+a <- runif(20, 0, 100)
+norm_a <- (a-mean(a))/sd(a)
