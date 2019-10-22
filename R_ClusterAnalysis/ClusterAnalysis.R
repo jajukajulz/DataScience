@@ -9,6 +9,8 @@
 # How to know optimal number of clusters?
 # i) domain knowledge ii) After initial guess, look at the sizes of each cluster(i.e. memberships counts) - if they are largely imbalanced, e..g. one cluster has 20 members and the other has 2 members, this calls for an investigation - it may be the 2 are outliers or have too many clusters.
 # iii) techniques like elbow method etc
+# NB - It is probably better to start small and increase number of clusters as needed. Rule of thumb - simpler is preferable.
+# i.e. Occam's razor  or law of parsimony  - the problem-solving principle that states "Entities should not be multiplied without necessity." This translates to - The simplest solution is most likely the right one.
 
 #1. kMeans Clustering
 # use normalized dataset
