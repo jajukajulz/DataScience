@@ -185,3 +185,8 @@ s
 #You will end up with a variable that has a mean of 0 and a standard deviation of 1 for each of your normalized variables.
 a <- runif(20, 0, 100)
 norm_a <- (a-mean(a))/sd(a)
+
+#Min-Max Normalization
+#alternative to z-score normalization is min-max normalization which scales all values to a fixed range between 0 and 1.
+#This transformation does not change the distribution of the feature and due to the decreased standard deviations, the effects of the outliers increases.
+# Therefore, before normalization, it is recommended to handle the outliers.
