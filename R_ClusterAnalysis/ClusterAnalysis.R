@@ -10,6 +10,8 @@
 # use normalized dataset
 # kc <- kmeans(normalized_dataset, number_of_clusters)
 # plot(variable1~variable2, dataset, col=kc$cluster) #plot variable1 against variable2 and colour the observations by cluster
+# normalized_dataset_2 <- cbind(normalized_dataset,kc$cluster) #add the cluster label output to your data
+# write.csv(x = normalized_dataset_2, file = "normalized_dataset_2.csv") #write your data to a csv
 # output of kmeans() gives summary of cluster sizes, cluster means (i.e. kc$center), cluster membership vector,
 # within cluster sum of squares by cluster - the lower the within cluster sum of squares, the lower the variability and the closer the observations are in terms of distance.
 
