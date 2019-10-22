@@ -8,6 +8,7 @@
 
 #1. kMeans Clustering
 # use normalized dataset
+# set.seed(101) #ensure results can be reproduced
 # kc <- kmeans(normalized_dataset, number_of_clusters)
 # plot(variable1~variable2, dataset, col=kc$cluster) #plot variable1 against variable2 and colour the observations by cluster
 # normalized_dataset_2 <- cbind(normalized_dataset,kc$cluster) #add the cluster label output to your data
