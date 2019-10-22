@@ -6,6 +6,10 @@
 # Grouping of items based on similarity/dissimilarity given by a distance measure. Clustering is an unsupervised machine learning method for partitioning dataset into a set of groups or clusters. A big issue is that clustering methods will return clusters even if the data does not contain any clusters.
 # Therefore, it’s necessary i) to assess clustering tendency before the analysis and ii) to validate the quality of the result after clustering.
 
+# How to know optimal number of clusters?
+# i) domain knowledge ii) After initial guess, look at the sizes of each cluster(i.e. memberships counts) - if they are largely imbalanced, e..g. one cluster has 20 members and the other has 2 members, this calls for an investigation - it may be the 2 are outliers or have too many clusters.
+# iii) techniques like elbow method etc
+
 #1. kMeans Clustering
 # use normalized dataset
 # set.seed(101) #ensure results can be reproduced
