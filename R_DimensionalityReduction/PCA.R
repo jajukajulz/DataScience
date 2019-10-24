@@ -90,7 +90,7 @@ pca.mtcars$sdev[1:2]
 #new coordinate system with an orthogonal basis
 round(cor(pca.mtcars$x))
 
-#Visualisation
+#Visualisation (see PCA_biplot_mtcars.png)
 #Use a biplot to interpret the Principal Components. The biplot shows the observations (labelled in black) on the same plot
 #with the new coordinate system based on the principal components (shown in red for each of the features)
 #The axis at the top (PC1) and the right hand side (PC2) is for the observations and principal component scores pca.mtcars$x[, 1:2]
