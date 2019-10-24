@@ -79,7 +79,7 @@ View(pca.mtcars$x[, 1:2])
 #The loadings for the principal components are stored in pca.mtcars$loadings if you have run PCA using princomp() otherwise in pca.mtcars$rotation if you use prcomp() for the PCA
 #The loadings relate to the features whilst the PC scores relate to the observations
 #A loading plot shows how strongly each characteristic influences a principal component.
-pca.mtcars$rotation[, 1:2] #loadings for first 2 components
+pca.mtcars$rotation[, 1:2] #loadings for first 2 components (generally between -1 and 1)
 
 #Summary
 #The Principal Components are are scaled with the mean 0 and standard deviation 1
@@ -102,11 +102,13 @@ round(cor(pca.mtcars$x))
 #with the new coordinate system based on the principal components (shown in red for each of the features)
 
 #Score plot
-#The axis at the top (PC1) and the right hand side (PC2) is for the observations and principal component scores pca.mtcars$x[, 1:2]
+#The axis at the top (PC1) and the right hand side (PC2) is usually for the observations and principal component scores pca.mtcars$x[, 1:2]
+#This generally has a larger range than the loadings e.g. [2,8] not [-1,1]
 
 #Loading plot
 #The axis on the bottom (PC1) and left hand side (PC2) is for the features and the rotation values (also known as loadings) pca.mtcars$rotation[, 1:2]
 #A loading plot shows how strongly each characteristic influences a principal component.
+#This generally has a smaller range than the score e.g. [-1,1] not [2,8]
 #Positive correlated variables point to the same side of the plot. Negative correlated variables point to opposite sides of the graph.
 
 #PCA biplot = PCA score plot + loading plot
