@@ -58,13 +58,19 @@ pca.mtcars.eigenvalue #we keep the first 2 PC's i.e. (6.6 + 2.65) / 11 = 0.84090
 #Another option for determining the optimal number of Principal Components to keep is to use the scree plot
 #VSS.scree() from psych package gives you a scree plot with eigenvalue vs component number
 library(psych)
-VSS.scree(cor(mtcars)) # optimal number of components is those with eigenvalue above 1 (Kaiser criterion)
+VSS.scree(cor(mtcars)) 
+# An ideal curve should be steep, then bends at an “elbow” — this is your cutting-off point (i.e. when you begin to have diminishing returns) — and after that flattens out.
+# To deal with a not-so-ideal scree plot curve, there are alternatives:
+# Kaiser rule: pick PCs with eigenvalues of at least 1.
+# Proportion of variance plot: the selected PCs should be able to describe at least 80% of the variance.
+
 
 #Scores
 #view the scores for the first two principal components (since we have seen that the first two are worth keeping)
 #The PC scores are calculated for each of the observations so that we can assess the spread, similarities and differences between the observations.
 #The PC values were computed by a standard linear transformation -  multiplying the original dataset with the identified weights i.e. loadings (rotation)
 # i.e. (scale(mtcars) %*% pca.mtcars$rotation[, 1:2])
+#PCA score plot shows clusters of samples based on their similarity arranged on a PC1 x PC2 axis
 View(pca.mtcars$x[, 1:2])
 
 
@@ -72,6 +78,7 @@ View(pca.mtcars$x[, 1:2])
 #The rotation matrix is also known as the component matrix or the loadings matrix - a matrix whose columns contain the eigenvectors
 #The loadings for the principal components are stored in pca.mtcars$loadings if you have run PCA using princomp() otherwise in pca.mtcars$rotation if you use prcomp() for the PCA
 #The loadings relate to the features whilst the PC scores relate to the observations
+#A loading plot shows how strongly each characteristic influences a principal component.
 pca.mtcars$rotation[, 1:2] #loadings for first 2 components
 
 #Summary
@@ -93,8 +100,16 @@ round(cor(pca.mtcars$x))
 #Visualisation (see PCA_biplot_mtcars.png)
 #Use a biplot to interpret the Principal Components. The biplot shows the observations (labelled in black) on the same plot
 #with the new coordinate system based on the principal components (shown in red for each of the features)
+
+#Score plot
 #The axis at the top (PC1) and the right hand side (PC2) is for the observations and principal component scores pca.mtcars$x[, 1:2]
+
+#Loading plot
 #The axis on the bottom (PC1) and left hand side (PC2) is for the features and the rotation values (also known as loadings) pca.mtcars$rotation[, 1:2]
+#A loading plot shows how strongly each characteristic influences a principal component.
+#Positive correlated variables point to the same side of the plot. Negative correlated variables point to opposite sides of the graph.
+
+#PCA biplot = PCA score plot + loading plot
 biplot(pca.mtcars, cex = c(0.8, 1.2))
 abline(h = 0, v = 0, lty = 'dashed')
 
