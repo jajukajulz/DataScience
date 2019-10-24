@@ -106,6 +106,7 @@ abline(h = 0, v = 0, lty = 'dashed')
 #to verify details from plot we can compute the correlation coefficient between the original variables and the principal components:
 cor(mtcars, pca.mtcars$x[, 1:2])
 
+#Extrapolate meaning of the components (this step is more art not science)
 #maybe we can call PC1 consumption features and PC2 tranmission characteristics
 
 ####################END PCA USING MTCARS DATASET##########################################################
