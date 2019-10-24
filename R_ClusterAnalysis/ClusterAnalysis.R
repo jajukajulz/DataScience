@@ -13,8 +13,15 @@
 # i.e. Occam's razor  or law of parsimony  - the problem-solving principle that states "Entities should not be multiplied without necessity." This translates to - The simplest solution is most likely the right one.
 
 #1. kMeans Clustering
+#my_data <- runif(20, 0, 100)
+
 # use normalized dataset
+# K-means works by reducing the distance between the data points and the cluster centers. Variables with larger scales can dominate the cluster calculations.
+# To normalize a variable, just subtract the mean value for that variable from each value. Then divide those values by the standard deviation. You will end up with a variable that has a mean of 0 and a standard deviation of 1 for each of your normalized variables.
+#normalized_dataset <- (my_data-mean(my_data))/sd(my_data) #normalizing that data
+
 # set.seed(101) #ensure results can be reproduced
+
 # kc <- kmeans(normalized_dataset, number_of_clusters)
 # plot(variable1~variable2, dataset, col=kc$cluster) #plot variable1 against variable2 and colour the observations by cluster
 # normalized_dataset_2 <- cbind(normalized_dataset,kc$cluster) #add the cluster label output to your data
