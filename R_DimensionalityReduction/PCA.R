@@ -54,7 +54,7 @@ pca.mtcars.eigenvalue <- (pca.mtcars)$sdev^2
 pca.mtcars.eigenvalue #we keep the first 2 PC's i.e. (6.6 + 2.65) / 11 = 0.8409091 (they explain approx 85% of the variance)
 #NB this is similar to the cumulative proportion on PC2 from the summary
 
-#Number of PC's to keep
+#Number of PC's to keep - Use Scree Plot (Also known as Pareto plot of the eigenvalues)
 #Another option for determining the optimal number of Principal Components to keep is to use the scree plot
 #VSS.scree() from psych package gives you a scree plot with eigenvalue vs component number
 library(psych)
